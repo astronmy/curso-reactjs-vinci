@@ -1,7 +1,6 @@
 
 import './Navbar.css'
 import MenuItem from "../MenuItem/MenuItem"
-
 const Navbar = ({storeName, backgroundColor}) =>{
   return (
       <nav style={{backgroundColor}}>
