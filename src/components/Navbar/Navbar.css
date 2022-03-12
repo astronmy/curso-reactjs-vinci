@@ -1,0 +1,14 @@
+nav {
+  background-color: crimson;
+  display: flex;
+  flex-wrap: row wrap; 
+  height: 3rem;
+  justify-content: center;
+  width: 100vw;
+}
+ul{
+  color: white;
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
