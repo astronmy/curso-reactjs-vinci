@@ -1,12 +1,14 @@
-import './Navbar.css'
 
-const Navbar = () =>{
+import './Navbar.css'
+import MenuItem from "../MenuItem/MenuItem"
+
+const Navbar = ({backgroundColor}) =>{
   return (
-      <nav>
+      <nav style={{backgroundColor}}>
           <ul>
-              <li>Home</li>
-              <li>Products</li>
-              <li>Services</li>
+              <MenuItem label="Home" />
+              <MenuItem label="Products" />
+              <MenuItem label="Contact" />
           </ul>
       </nav>
   )
