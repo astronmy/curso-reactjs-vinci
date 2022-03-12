@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Navbar backgroundColor="crimson" />
+        <Navbar storeName="E-Commerce" backgroundColor="crimson" />
       </header>
     </div>
   );

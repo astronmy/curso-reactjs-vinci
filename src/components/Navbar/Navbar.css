@@ -1,13 +1,23 @@
 nav {
   display: flex;
-  flex-wrap: row wrap; 
-  height: 3rem;
-  justify-content: center;
+  flex-wrap: row wrap;
+  height: 4rem;
+  justify-content: space-between;
+  align-items: center;
   width: 100vw;
 }
-ul{
+nav ul{
+  margin-right: 20%;
+}
+ul {
   color: white;
   display: flex;
   list-style: none;
   gap: 2rem;
+}
+.title-store {
+  color: white;
+  display: inline-block;
+  font-size: 1.3rem;
+  margin-left: 10%;
 }

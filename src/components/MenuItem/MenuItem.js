@@ -1,7 +1,9 @@
 
-const MenuItem = ({label}) =>{
+import './MenuItem.css'
+
+const MenuItem = ({label, link}) =>{
   return (
-    <li>{label}</li>
+    <li><a href={link} >{label}</a></li>
   )
 }
 export default MenuItem
