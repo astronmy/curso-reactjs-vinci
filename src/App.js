@@ -1,11 +1,14 @@
-import Navbar from "./components/Navbar/Navbar"
+import ItemCount from "./components/ItemCount/ItemCount"
 
 function App() {
+  const onAdd = (quantity) => {
+    console.log('La cantidad es ', quantity)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <Navbar storeName="E-Commerce" backgroundColor="crimson" />
-      </header>
+      <div className="container">
+        <ItemCount className="item-counter" initial={0} stock={20} onAdd={onAdd}></ItemCount>
+      </div>
     </div>
   );
 }
