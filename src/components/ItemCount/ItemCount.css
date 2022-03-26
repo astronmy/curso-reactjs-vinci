@@ -1,21 +1,60 @@
+p {
+    text-align: center;
+}
 button {
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     display: block;
     font-size: 1.1rem;
     font-weight: bold;
     height: 40px;
     margin: 1rem auto;
     text-align: center;
+    transition: 0.3s;
     width: 150px;
 }
-.container{
+
+button:hover {
+    transform: scale(1.1);
+}
+
+
+.btn-discount, .btn-increment, .btn-add {
+    color: #f3f3f3;
+}
+
+.btn-discount {
+    background-color: crimson;
+}
+
+.btn-increment {
+    background-color: #4BB543;
+}
+
+.btn-add {
+    background-color: salmon;
+}
+
+.disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed	;
+    transition: none !important;
+}
+.disabled:hover{
+  transform: scale(1);
+}
+.container {
     margin: 5rem auto;
     width: 80%;
 }
-.item-counter{
+
+.item-counter {
     margin: 0 auto;
     text-align: center;
 }
-.item-counter__number{
+
+.item-counter__number {
     font-weight: bold;
     text-align: center;
 }
