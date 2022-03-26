@@ -1,4 +1,4 @@
-import ItemCount from "./components/ItemCount/ItemCount"
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 
 function App() {
   const onAdd = (quantity) => {
@@ -8,10 +8,7 @@ function App() {
   }
   return (
     <div className="App">
-      <div className="container">
-      <p> El Stock Disponible es de <em>20</em></p>
-        <ItemCount className="item-counter" initial={0} stock={20} onAdd={onAdd}></ItemCount>
-      </div>
+        <ItemListContainer greetings={"Listado de Productos"}></ItemListContainer>
     </div>
   );
 }

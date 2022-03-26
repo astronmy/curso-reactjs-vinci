@@ -1,2 +1,2 @@
-# Desafio Clase Componentes II: Contador con botón
-Crea un componente Item Count para incrementar o decremetar los productos del carrito
+# Desafio Clase 5 Promises Asincronía y MAP: Catálogo con MAPS y Promises
+Crea los componentes Item.js e ItemList.js para mostrar algunos productos en tu ItemListContainer.js
