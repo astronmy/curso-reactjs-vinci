@@ -1,16 +1,18 @@
+import ItemDetail from "./components/ItemDetail/ItemDetail";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import NavBar from "./components/NavBar/Navbar"
+import { BrowserRouter, Routes, Route} from "react-router-dom"
 
 function App() {
-  const onAdd = (quantity) => {
-    if(quantity > 0){
-      alert("La cantidad seleccionada es "+quantity)
-    }
-  }
   return (
     <div className="App">
-        <NavBar name="Tienda Coder"/>
-        <ItemListContainer greetings={"Listado de Productos"}></ItemListContainer>
+      <NavBar name="Tienda Coder" />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ItemListContainer greetings={"Listado de Productos"} />}></Route>
+          <Route path="/product/:productId" element={<ItemDetail />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
