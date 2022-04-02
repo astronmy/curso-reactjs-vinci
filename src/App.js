@@ -1,4 +1,5 @@
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+import NavBar from "./components/NavBar/Navbar"
 
 function App() {
   const onAdd = (quantity) => {
@@ -8,6 +9,7 @@ function App() {
   }
   return (
     <div className="App">
+        <NavBar name="Tienda Coder"/>
         <ItemListContainer greetings={"Listado de Productos"}></ItemListContainer>
     </div>
   );

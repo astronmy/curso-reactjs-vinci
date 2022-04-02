@@ -1,0 +1,17 @@
+.header {
+  background-color: crimson;
+  display: flex;
+  height: 15vh;
+  justify-content: space-between;
+  max-height: 80px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+.header__title{
+  color: white;
+  font-size: 1.6rem;
+  margin: 0.7rem;
+  padding: 0.3rem;
+}

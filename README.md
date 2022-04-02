@@ -1,2 +1,7 @@
-# Desafio Clase 5 Promises Asincronía y MAP: Catálogo con MAPS y Promises
-Crea los componentes Item.js e ItemList.js para mostrar algunos productos en tu ItemListContainer.js
+# Desafio Clase 6 Consumiendo APIs:
+## Detalle del Producto
+
+1. Crea tu componente ItemDetailContainer, con la misma premisa que ItemListContainer.
+2. Luego, crea tu componente ItemDetail.js.
+
+
