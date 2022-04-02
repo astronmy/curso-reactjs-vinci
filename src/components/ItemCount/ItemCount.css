@@ -1,48 +1,52 @@
+.item-count {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+}
+.item-count__counter {
+    align-items: center;
+    display: flex;
+    gap: 0.7rem;
+    justify-content: center;
+    max-width: 200px;
+}
 p {
     text-align: center;
 }
 button {
-    border: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    display: block;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: bold;
-    height: 40px;
-    margin: 1rem auto;
+    margin: 0.3rem auto;
+    padding: 0.5rem 0.8rem;
     text-align: center;
-    transition: 0.3s;
-    width: 150px;
+    transition: all 0.5s;
 }
-
-button:hover {
-    transform: scale(1.1);
+.btn-discount,
+.btn-increment,
+.btn-add {
+    color: rgb(65, 62, 62);
 }
-
-
-.btn-discount, .btn-increment, .btn-add {
-    color: #f3f3f3;
-}
-
-.btn-discount {
-    background-color: crimson;
-}
-
-.btn-increment {
-    background-color: #4BB543;
-}
-
 .btn-add {
     background-color: salmon;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    width: 114px;
 }
-
+.btn-add:hover {
+    cursor: pointer;
+    transform: scale(1);
+}
 .disabled {
-    background-color: #cccccc;
+    background-color: lightgray;
     color: #666666;
-    cursor: not-allowed	;
+    cursor: not-allowed;
     transition: none !important;
 }
-.disabled:hover{
-  transform: scale(1);
+.disabled:hover {
+    transform: scale(1);
 }
 .container {
     margin: 5rem auto;
