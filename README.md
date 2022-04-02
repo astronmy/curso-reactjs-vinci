@@ -1,7 +1,8 @@
-# Desafio Clase 6 Consumiendo APIs:
-## Detalle del Producto
+# Desafio Clase 8 Eventos
+## Sincronizar Counter
 
-1. Crea tu componente ItemDetailContainer, con la misma premisa que ItemListContainer.
-2. Luego, crea tu componente ItemDetail.js.
+- Importa el ItemCount.js del desafio nro 4 en el counter ItemDetail.js y configura el evento de compra siguiendo los detalles del manual.
+
+
 
 

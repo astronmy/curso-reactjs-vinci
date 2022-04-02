@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./SearchBox.css"
 
-const SearchBox = ({ onSearch }) => {
-  const [search, setSearch] = useState(" ")
+const SearchBox = ({ onSearch, initial }) => {
+  const [search, setSearch] = useState("")
 
   const handlerKeyPress = (e) => {
     if (e.key == "Enter") {
@@ -10,9 +10,14 @@ const SearchBox = ({ onSearch }) => {
       onSearch(search)
     }
   };
+
+  useEffect(() => {
+    setSearch(initial)
+}, [])
+
   return (
       <div className='searchbox'>
-        <input className='searchbox__input' placeholder='Buscar...' type="text"
+        <input className='searchbox__input' placeholder='Buscar...' type="text" value={search}
           onChange={(e) => setSearch(e.target.value)}
           onKeyPress={(e) => handlerKeyPress(e)}></input>
         <a className='searchbox__button' onClick={() => onSearch(search)}><i className="fa-solid fa-magnifying-glass"></i></a>

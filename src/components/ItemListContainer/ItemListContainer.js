@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 
 const ItemListContainer = ({ greetings }) => {
     const [products, setProducts] = useState([])
+    const [search, setSearch] = useState("")
     const [loading, setLoading] = useState(false)
 
     const getProducts = (search = "") => {
@@ -17,19 +18,22 @@ const ItemListContainer = ({ greetings }) => {
             .then(result => {
                 setProducts(result.results)
             }).finally(() => {
+                sessionStorage.setItem("search", search);
+                setSearch(search);
                 setLoading(false);
             })
     }
 
     useEffect(() => {
-        getProducts()
+        const search = (sessionStorage.getItem("search") ? sessionStorage.getItem("search") : "");
+        getProducts(search)
     }, [])
 
 
     return (
         <div className="container">
             <h4 className='title'>{greetings}</h4>
-            <SearchBox onSearch={getProducts} ></SearchBox>
+            <SearchBox initial={search} onSearch={getProducts} ></SearchBox>
             {
                 loading ? <h1 className='loading'>Cargando ...</h1> : <ItemList products={products}></ItemList>
             }
