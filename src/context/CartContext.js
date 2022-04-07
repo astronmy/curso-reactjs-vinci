@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { createContext, useState } from "react"
 
 const Context = createContext()
 
@@ -38,3 +38,4 @@ export const CartContextProvider = ({ children }) => {
       </Context.Provider>
   )
 }
+export default Context
