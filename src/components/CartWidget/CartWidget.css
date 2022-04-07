@@ -1,8 +1,9 @@
 .cart-widget {
+  color:white;
   width: auto;
   padding: 12px;
   font-size: 8px;
-  background: tomato;
+  background: salmon;
   border-radius: 8px;
   flex: none;
   display: flex;
@@ -17,6 +18,12 @@
   cursor: pointer;
   outline: inherit;
   font-size: medium;
+  margin-right: 2rem;
+}
+
+.cart-widget a{
+  color: white;
+  text-decoration: none;
 }
 
 .cart-widget__image {

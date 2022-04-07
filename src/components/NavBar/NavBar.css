@@ -1,4 +1,5 @@
-.header {
+
+.nav {
   background-color: crimson;
   display: flex;
   height: 15vh;
@@ -9,9 +10,32 @@
   width: 100%;
   z-index: 2;
 }
-.header__title{
+.nav a{
+  text-decoration: none;
+}
+.nav__title{
   color: white;
   font-size: 1.6rem;
   margin: 0.7rem;
   padding: 0.3rem;
+}
+.nav__categories{
+  display: flex;
+  gap: 2rem;
+  margin: 2rem auto;
+}
+.nav__categories a{
+  font-size: 1.2rem;
+  color:white;
+}
+
+.nav__categories a:hover{
+  text-decoration: underline;
+  transition: 0.8s;
+}
+
+@media screen and (max-width: 520px){
+  .nav__categories{
+    display: none;
+  }
 }
