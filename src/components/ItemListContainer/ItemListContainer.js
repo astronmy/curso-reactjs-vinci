@@ -2,40 +2,37 @@
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList'
 import { useEffect, useState } from 'react'
+import { getProducts } from '../../asyncmock'
 
 const ItemListContainer = ({ greetings }) => {
     const [products, setProducts] = useState([])
     const [search, setSearch] = useState("")
+    const [loading, setLoading] = useState(true)
 
-    const handler = (e) => {
-        if(e.key == "Enter"){
-            setSearch(e.target.value)
-            fetchProducts()
-        }
-    };
+    useEffect(() => {
+        
+        getProducts(search).then(items => {
+            setProducts(items)
+        }).catch(err  => {
+            console.log(err)
+        }).finally(() => {
+            setLoading(false)
+        })
+        return (() => {
+            setProducts([])
+        })          
+    }, [search])
 
-    const fetchProducts = () => {
-        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${search}`)
-            .then(response => {
-                return response.json()
-            })
-            .then(result => {
-                setProducts(result.results)
-            })
-    }
     return (
         <div className="container">
-            <div>
-                <h4 className='title'>{greetings}</h4>
-                <div className='searchbox'>
-                    <input className='searchbox__input' placeholder='Buscar...' type="text" 
-                    onChange={(e) => setSearch(e.target.value)}
-                    onKeyPress={(e) => handler(e)}></input>
-                    <a className='searchbox__button' onClick={fetchProducts}><i className="fa-solid fa-magnifying-glass"></i></a>
-                </div>
+            {
+                loading ? 
+                <h1>Cargando...</h1> : 
 
-            </div>
-            <ItemList products={products}></ItemList>
+                products.length ? 
+                    <ItemList products={products}></ItemList>:
+                    <h1>No se encontraron productos!</h1>
+            }
         </div>
     )
 }

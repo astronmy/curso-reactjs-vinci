@@ -21,14 +21,19 @@
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-between;
   margin: 2rem auto;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  width: 80%;
+  width: 40%;
+  max-width: 400px;
 }
 .product__image img{
-  max-width: 400px;
+    border-radius: 5px;
+    display: block;  
+    margin: 2rem auto;
+    max-width: 300px;
 }
 .product__info {
   display: flex;
@@ -36,21 +41,27 @@
   gap: 1rem;
 }
 .product__title {
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: 600;
   padding: 0.3rem;
   margin: 0 auto;
   margin-top: 1.2rem;
+  text-align: center;
   width: 98%;
 }
 .product__price {
-  font-size: 3.5rem;
-  font-weight: 100;
+  font-size: 2.5rem;
+  font-weight: 600;
   margin-top: 1.2rem;
+  text-align: center;
   width: 90%;
 }
 .product__price::before {
   content: "$";
+}
+.product__description{
+   font-size: 1.2rem;
+   text-align: center;
 }
 .product__attributes{
   display: flex;
