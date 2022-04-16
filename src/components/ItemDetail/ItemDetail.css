@@ -61,3 +61,22 @@
 .product__attributes :nth-child(2) {
   font-weight: 600;
 }
+
+.product  footer{
+  display: flex;
+  justify-content: center;
+}
+
+.carrito{
+  background-color: tomato;
+  color: white;
+  display: inline-block;
+  margin: 1rem auto;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.carrito:hover{
+  transform: scale(1.1);
+}

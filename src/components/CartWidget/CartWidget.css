@@ -2,7 +2,7 @@
   width: auto;
   padding: 12px;
   font-size: 8px;
-  background: #d68fff;
+  background: tomato;
   border-radius: 8px;
   flex: none;
   display: flex;
@@ -17,8 +17,14 @@
   cursor: pointer;
   outline: inherit;
   font-size: medium;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 10px;
 }
+
 
 .CartImg {
   margin-right: 10px;
+  color: white;
 }

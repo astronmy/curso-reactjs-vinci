@@ -1,0 +1,14 @@
+h1{
+  text-align: center;
+}
+.cart-content {
+  background-color: #f2f2f2;
+  display: block;
+  margin: 3rem auto;
+  width: 90%;
+}
+.btnEmpty{
+  display: block;
+  max-width: 250px;
+  margin: 1rem auto;
+}

@@ -4,7 +4,7 @@ const Context = createContext()
 
 export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([])
-    console.log(cart)
+    
     const addItem = (product, quantity) => {
         const objItemCart = {
             ...product,
@@ -12,6 +12,10 @@ export const CartContextProvider = ({ children }) => {
         }
         
         setCart([...cart, objItemCart ])
+    }
+    const removeItem = (id) => {
+        //using filter to remove
+        setCart(cart.filter( item => (item.id != id)))
     }
 
     const clearCart = () => {
@@ -32,6 +36,7 @@ export const CartContextProvider = ({ children }) => {
             cart, 
             addItem,
             clearCart,
+            removeItem,
             getQuantity
         }}>
             {children}

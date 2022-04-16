@@ -1,0 +1,18 @@
+.carrito__item{
+  background-color: white;
+  border: 1px lightgray solid;
+  border-radius: 10px;
+  display: flex;
+  color: black;
+  justify-content: space-between;
+  padding: 10px;
+}
+.carrito__item :nth-child(1){
+    width: 75%;
+}
+.carrito__item :nth-child(2){
+  width: 10%;
+}
+.carrito__item :nth-child(3){
+  width: 15%;
+}

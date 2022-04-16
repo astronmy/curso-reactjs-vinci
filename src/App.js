@@ -9,11 +9,11 @@ function App() {
   return (
     <div className="App">
       <CartContextProvider>
-        <NavBar name="Tienda Coder" />
         <BrowserRouter>
+          <NavBar name="Tienda Coder" />
           <Routes>
             <Route path="/" element={<ItemListContainer greetings={"Listado de Productos"} />}></Route>
-            <Route path='/category/:categoryId' element={<ItemListContainer greeting={''}/>} />
+            <Route path='/category/:categoryId' element={<ItemListContainer greeting={''} />} />
             <Route path="/detail/:productId" element={<ItemDetailContainer />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
           </Routes>
