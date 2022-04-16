@@ -1,19 +1,21 @@
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Item.css'
 
-const Item = ({ image, title, price, id }) => {
+const Item = ({ id, name, img, price}) => {
 
     return (
-        <div className="card">
-            <img src={image} alt={title} />
+        <article className="card">
+            <picture>
+                <img src={img} alt={name} />
+            </picture>
+            <h4 className="card__title">{name}</h4>
             <div className="card__container">
-                <NavLink to={`product/${id}`}>
-                    <h4 className="card__title">{`${title.substring(0,30)}...`}</h4>
-                </NavLink>
                 <p className="card__price">{price}</p>
-                
             </div>
-        </div>
+            <footer>
+                <Link to={`/detail/${id}`} className='Option'>Ver Detalle</Link>
+            </footer>
+        </article>
     )
 
 }

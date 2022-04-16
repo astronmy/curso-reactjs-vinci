@@ -1,39 +1,36 @@
 
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList'
-import SearchBox from '../SearchBox/SearchBox'
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom' 
+import { getProducts } from '../../asyncmock'
 
 const ItemListContainer = ({ greetings }) => {
     const [products, setProducts] = useState([])
-    const [search, setSearch] = useState("")
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
-    const getProducts = (search = "") => {
-        setLoading(true);
-        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${search}`)
-            .then(response => {
-                return response.json()
-            })
-            .then(result => {
-                setProducts(result.results)
-            }).finally(() => {
-                sessionStorage.setItem("search", search);
-                setSearch(search);
-                setLoading(false);
-            })
-    }
+    const { categoryId } = useParams()
 
     useEffect(() => {
-        const search = (sessionStorage.getItem("search") ? sessionStorage.getItem("search") : "");
-        getProducts(search)
-    }, [])
+        setLoading(true)
+        
+        getProducts(categoryId).then(items => {
+            setProducts(items)
+        }).catch(err  => {
+            console.log(err)
+        }).finally(() => {
+            setLoading(false)
+        })
+
+        return (() => {
+            setProducts([])
+        })          
+    }, [categoryId])
 
 
     return (
         <div className="container">
             <h4 className='title'>{greetings}</h4>
-            <SearchBox initial={search} onSearch={getProducts} ></SearchBox>
             {
                 loading ? <h1 className='loading'>Cargando ...</h1> : <ItemList products={products}></ItemList>
             }
