@@ -6,10 +6,15 @@ import CartContext from '../../context/CartContext'
 const CartWidget = () => {
 
     const { getQuantity } = useContext(CartContext)
-
+    
+    if(getQuantity() === 0) {
+        return (
+            <div></div>
+        )
+    }
     return(
         <Link to={'/'} className="CartWidget">
-            <img src="/images/cart.svg" alt='cart' className='CartImg'/>
+            <i class="fa-solid fa-cart-shopping"></i>&nbsp;
             { getQuantity() }
         </Link>
     );
