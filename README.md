@@ -1,5 +1,5 @@
-# Desafio Clase 9 Context
-## CartContext
+# Desafio Clase 10 Técnicas Rendering
+## Cart View
 
 
 
