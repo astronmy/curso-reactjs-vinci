@@ -15,6 +15,10 @@ const ItemCount = ({ initial = 0, stock, onAdd }) => {
         }
     }
 
+    if(stock === 0) {
+        return <button className='btn-discount' disabled>Sin stock</button>
+    }
+
     return (
         <div className='item-count'>
             <div className='item-count__counter'>

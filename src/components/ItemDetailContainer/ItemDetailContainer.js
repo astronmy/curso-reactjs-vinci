@@ -1,9 +1,8 @@
 import './ItemDetailContainer.css'
-import { useState, useEffect } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { firebaseStorage } from '../../services/firebase'
-import { getDoc, doc } from 'firebase/firestore'
+import { getProductById } from '../../services/firebase/firestore'
 
 const ItemDetailContainer = ({ addToCart, cart }) => {
     const [product, setProduct] = useState()
@@ -13,11 +12,9 @@ const ItemDetailContainer = ({ addToCart, cart }) => {
 
     useEffect(() => {
         setLoading(true)
-        const docRef = doc(firebaseStorage, 'products', productId)
 
-        getDoc(docRef).then(querySnapshot => {
-            const product = { id: querySnapshot.id, ...querySnapshot.data() }
-            setProduct(product)
+        getProductById(productId).then(prod => {
+            setProduct(prod)
         }).catch(error => {
             console.log(error)
         }).finally(() => {

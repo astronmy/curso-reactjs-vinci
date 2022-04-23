@@ -1,7 +1,25 @@
 import './NavBar.css'
-import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget'
+import CartContext from '../../context/CartContext'
+import { Link, NavLink } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { getCategories } from '../../services/firebase/firestore'
+import { orderCategories } from './helper';
+
+
 const NavBar = ({ name }) => {
+
+  const [categories, setCategories] = useState([])
+  const { getQuantity } = useContext(CartContext)
+
+  useEffect(() => {
+    getCategories().then(categories => {
+      orderCategories(categories)
+      setCategories(categories)
+    }).catch(error => {
+      console.log(error)
+    })
+  }, [])
 
   return (
     <header className='header'>
@@ -9,11 +27,20 @@ const NavBar = ({ name }) => {
         <h1 className='header__title'>{name}</h1>
       </Link>
       <div className="menu">
-        <Link to='/category/celular'  className='Option'>Celular</Link>
-        <Link to='/category/tablet'   className='Option'>Tablet</Link>
-        <Link to='/category/notebook' className='Option'>Notebook</Link>
+        {
+          categories.map(cat =>
+            <NavLink
+              key={cat.id}
+              to={`/category/${cat.id}`}
+              className={({ isActive }) => isActive ? 'active' : 'option'}
+            >
+              {cat.description}
+            </NavLink>)
+        }
       </div>
-      <CartWidget />
+      <div>
+        {getQuantity() > 0 && <CartWidget />}
+      </div>
 
     </header>
   )

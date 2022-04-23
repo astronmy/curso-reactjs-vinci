@@ -1,41 +1,38 @@
 
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { firebaseStorage } from '../../services/firebase'
-import { getDocs, collection, query, where, limit } from 'firebase/firestore' 
+import { useAsync } from '../../hooks/useAsync'
+import { useNotification } from '../../notification/notification'
+import { getProducts } from '../../services/firebase/firestore'
 
 const ItemListContainer = ({ greetings }) => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
 
+    const { setNotification } = useNotification()
     const { categoryId } = useParams()
 
-    useEffect(() => {
-        setLoading(true)
+    useAsync(
+        setLoading,
+        () => getProducts(categoryId),
+        setProducts,
+        () => setNotification('error', 'No se pudieron cargar los productos. Por favor intente luego'),
+        [categoryId]
+    )
 
-        const collectionRef = categoryId
-            ? query(collection(firebaseStorage, 'products'), where('category', '==', categoryId), limit(10))
-            : collection(firebaseStorage, 'products')
+    if (loading) {
+        return (
+            <>
+                <h1>Cargando...</h1>
+            </>
+        )
+    }
 
-        getDocs(collectionRef).then(querySnapshot => {
-            console.log(querySnapshot.size)
-            const products = querySnapshot.docs.map(doc => {
-                return { id: doc.id, ...doc.data() }
-            })
-            setProducts(products)
-        }).catch(error => {
-            console.log(error)
-        }).finally(() => {
-            setLoading(false)
-        })
-
-        return (() => {
-            setProducts([])
-        })
-    }, [categoryId])
-
+    if (products.length === 0) {
+        return <h1>No se encontraron productos!</h1>
+    }
 
     return (
         <div className="container">
