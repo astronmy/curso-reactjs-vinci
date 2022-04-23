@@ -1,6 +1,6 @@
-# Desafio Clase 11 Utilizando Firebase
+# Desafio Clase 12 Firebase
 
-# Desafio Item Collection
+# Desafio Item Collection II
 
 
 
