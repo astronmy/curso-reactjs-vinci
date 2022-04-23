@@ -2,8 +2,9 @@
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom' 
-import { getProducts } from '../../asyncmock'
+import { useParams } from 'react-router-dom'
+import { firebaseStorage } from '../../services/firebase'
+import { getDocs, collection, query, where, limit } from 'firebase/firestore' 
 
 const ItemListContainer = ({ greetings }) => {
     const [products, setProducts] = useState([])
@@ -13,18 +14,26 @@ const ItemListContainer = ({ greetings }) => {
 
     useEffect(() => {
         setLoading(true)
-        
-        getProducts(categoryId).then(items => {
-            setProducts(items)
-        }).catch(err  => {
-            console.log(err)
+
+        const collectionRef = categoryId
+            ? query(collection(firebaseStorage, 'products'), where('category', '==', categoryId), limit(10))
+            : collection(firebaseStorage, 'products')
+
+        getDocs(collectionRef).then(querySnapshot => {
+            console.log(querySnapshot.size)
+            const products = querySnapshot.docs.map(doc => {
+                return { id: doc.id, ...doc.data() }
+            })
+            setProducts(products)
+        }).catch(error => {
+            console.log(error)
         }).finally(() => {
             setLoading(false)
         })
 
         return (() => {
             setProducts([])
-        })          
+        })
     }, [categoryId])
 
 
