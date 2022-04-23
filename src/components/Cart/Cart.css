@@ -32,3 +32,8 @@ h1{
 .buttonbar button{
   width: 50%;
 }
+.buttonbar button:hover{
+  border: none;
+  background-color: tomato;
+  color: white;
+}

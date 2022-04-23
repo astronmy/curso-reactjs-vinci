@@ -1,13 +1,14 @@
 .header {
   background-color: crimson;
   display: flex;
-  height: 15vh;
+  height: 20vh;
   justify-content: space-between;
   max-height: 80px;
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 2;
+  min-height: 80px;
 }
 .header__title{
   color: white;
@@ -30,25 +31,9 @@ a {
 }
 
 .active {
-  text-decoration: none;
-  border-radius: 25;
-  margin: 0 50px;
-  width: auto;
-  padding: 12px;
-  font-size: 8px;
-  background: red;
-  border-radius: 8px;
-  flex: none;
-  display: flex;
-  order: 1;
-  align-self: center;
-  flex-grow: 0;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: #FFFFFF;
-  border: none;
-  border-style: none;
-  cursor: pointer;
-  outline: inherit;
+  background-color: tomato ;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.2rem;
+  padding: 1rem;
 }

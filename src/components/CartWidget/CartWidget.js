@@ -13,7 +13,7 @@ const CartWidget = () => {
         )
     }
     return(
-        <Link to={'/'} className="CartWidget">
+        <Link to={'/cart'} className="CartWidget">
             <i class="fa-solid fa-cart-shopping"></i>&nbsp;
             { getQuantity() }
         </Link>
