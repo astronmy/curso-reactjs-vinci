@@ -1,17 +1,39 @@
 .header {
   background-color: crimson;
   display: flex;
-  height: 15vh;
+  height: 20vh;
   justify-content: space-between;
   max-height: 80px;
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 2;
+  min-height: 80px;
 }
 .header__title{
   color: white;
   font-size: 1.6rem;
   margin: 0.7rem;
   padding: 0.3rem;
+}
+.menu {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+}
+.option{
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+}
+
+.active {
+  background-color: tomato ;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.2rem;
+  padding: 1rem;
 }
